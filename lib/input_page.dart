@@ -59,40 +59,34 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
 //                  GestureDetector is used to detect when the user interacts with the child widget.
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
-//                        updateColor(Gender.male);
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReuseableCard(
-                      color: selectedGender == Gender.male
-                          ? ACTIVE_CARD_COLOR
-                          : INACTIVE_CARD_COLOR,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        label: 'MALE',
-                      ),
+                    color: selectedGender == Gender.male
+                        ? ACTIVE_CARD_COLOR
+                        : INACTIVE_CARD_COLOR,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
-//                        updateColor(Gender.female);
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReuseableCard(
-                      color: selectedGender == Gender.female
-                          ? ACTIVE_CARD_COLOR
-                          : INACTIVE_CARD_COLOR,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
-                      ),
+                    color: selectedGender == Gender.female
+                        ? ACTIVE_CARD_COLOR
+                        : INACTIVE_CARD_COLOR,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
                     ),
                   ),
                 ),
