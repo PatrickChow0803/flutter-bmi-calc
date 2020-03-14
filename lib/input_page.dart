@@ -119,20 +119,32 @@ class _InputPageState extends State<InputPage> {
                       ),
                     ],
                   ),
-                  Slider(
-                      value: height.toDouble(),
-                      min: 120.0,
-                      max: 220.0,
-                      // Active color is the color to the left of the thumb
-                      activeColor: Color(0xFFEB1555),
-                      // Inactive color is the color to the right of the thumb
-                      inactiveColor: Color(0xFF8D8E98),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      thumbColor: Color(0xFFEB1555),
+                      overlayColor: Color(0x29EB1555),
+                      inactiveTrackColor: Color(0xFF8D8E98),
+                      activeTrackColor: Colors.white,
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 30.0),
+                    ),
+                    child: Slider(
+                        value: height.toDouble(),
+                        min: 120.0,
+                        max: 220.0,
+                        // Active color is the color to the left of the thumb
+//                        activeColor: Colors.white,
+                        // Inactive color is the color to the right of the thumb
+//                        inactiveColor: Color(0xFF8D8E98),
 //                        newValue is the value that will be passed to me when the user interacts with the slider
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                      })
+                        onChanged: (double newValue) {
+                          setState(() {
+                            height = newValue.round();
+                          });
+                        }),
+                  )
                 ],
               ),
             ),
